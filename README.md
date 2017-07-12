@@ -1,37 +1,3 @@
-I.set up new project.
-composer create-project --prefer-dist yiisoft/yii2-app-advanced yii-application
-php init
-choose 0 
-yes
-:) complete !!!
-2.Continue Model 
--at file common : config connect to mysql 
-create migate : php yii migrate/create create_news_table
-php yii2 migrate
-3.config url 
-sudo a2enmod rewrite
-sudo service apache2 restart
-
-sudo gedit /etc/apache2/sites-available/000-default.conf
-<Directory "/var/www/html"> AllowOverride All </Directory>
-4.create model and CRUD mode
-======================================
-5.add theme
-https://github.com/dmstr/yii2-adminlte-asset
-=========================================
-6 export file 
-https://github.com/kartik-v/yii2-export
-add vao common->config->main (ngang hang voi components)
- 'modules' => [
-        'redactor' => 'yii\redactor\RedactorModule',
-        'gridview' => [
-            'class' => '\kartik\grid\Module'
-        ],
-    ]
-=========================================
-7 redactor
-https://github.com/yiidoc/yii2-redactor 
-
 II. clone foodjp
 B1 : git clone https://github.com/conghc94/yii2-foodjp.git
 
@@ -53,6 +19,23 @@ B5 : edit database in common/config/main-local
 B6 : cd nameProject : php yii migrate
 
 B7 : if not run you can set read/write url
+
+B8 : On windows, create .htaccess container
+/*
+DirectoryIndex index.php
+
+Options +FollowSymLinks
+IndexIgnore */*
+RewriteEngine on
+
+# if a directory or a file exists, use it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# otherwise forward it to index.php
+RewriteRule . index.php
+*/
+
 
 Yii 2 Advanced Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
 developing complex Web applications with multiple tiers.

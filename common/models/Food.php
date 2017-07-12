@@ -40,7 +40,8 @@ class Food extends \yii\db\ActiveRecord
             [['detail'], 'string'],
             [['created_at', 'updated_at'], 'safe'],
             [['name', 'image'], 'string', 'max' => 255],
-            [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
+            [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id'],
+            [['file_image'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, gif']],
         ];
     }
 
