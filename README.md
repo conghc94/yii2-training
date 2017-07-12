@@ -1,5 +1,58 @@
-Yii 2 Advanced Project Template
-===============================
+I.set up new project.
+composer create-project --prefer-dist yiisoft/yii2-app-advanced yii-application
+php init
+choose 0 
+yes
+:) complete !!!
+2.Continue Model 
+-at file common : config connect to mysql 
+create migate : php yii migrate/create create_news_table
+php yii2 migrate
+3.config url 
+sudo a2enmod rewrite
+sudo service apache2 restart
+
+sudo gedit /etc/apache2/sites-available/000-default.conf
+<Directory "/var/www/html"> AllowOverride All </Directory>
+4.create model and CRUD mode
+======================================
+5.add theme
+https://github.com/dmstr/yii2-adminlte-asset
+=========================================
+6 export file 
+https://github.com/kartik-v/yii2-export
+add vao common->config->main (ngang hang voi components)
+ 'modules' => [
+        'redactor' => 'yii\redactor\RedactorModule',
+        'gridview' => [
+            'class' => '\kartik\grid\Module'
+        ],
+    ]
+=========================================
+7 redactor
+https://github.com/yiidoc/yii2-redactor 
+
+II. clone foodjp
+B1 : git clone https://github.com/conghc94/yii2-foodjp.git
+
+B2 : php init
+0
+yes
+All
+B3 : composer install
+
+if not yet install composer {
+    curl -sS https://getcomposer.org/installer | php
+    sudo mv composer.phar /usr/local/bin/composer
+    composer -v
+}
+B4 : composer update
+
+B5 : edit database in common/config/main-local
+
+B6 : cd nameProject : php yii migrate
+
+B7 : if not run you can set read/write url
 
 Yii 2 Advanced Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
 developing complex Web applications with multiple tiers.
@@ -24,7 +77,6 @@ common
     config/              contains shared configurations
     mail/                contains view files for e-mails
     models/              contains model classes used in both backend and frontend
-    tests/               contains tests for common classes    
 console
     config/              contains console configurations
     controllers/         contains console controllers (commands)
@@ -37,7 +89,6 @@ backend
     controllers/         contains Web controller classes
     models/              contains backend-specific model classes
     runtime/             contains files generated during runtime
-    tests/               contains tests for backend application    
     views/               contains view files for the Web application
     web/                 contains the entry script and Web resources
 frontend
@@ -46,10 +97,11 @@ frontend
     controllers/         contains Web controller classes
     models/              contains frontend-specific model classes
     runtime/             contains files generated during runtime
-    tests/               contains tests for frontend application
     views/               contains view files for the Web application
     web/                 contains the entry script and Web resources
     widgets/             contains frontend widgets
 vendor/                  contains dependent 3rd-party packages
 environments/            contains environment-based overrides
+tests                    contains various tests for the advanced application
+    codeception/         contains tests developed with Codeception PHP Testing Framework
 ```
